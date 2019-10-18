@@ -1,0 +1,10 @@
+window_set_size(128,32);window_center();argument4=".gml";
+if file_exists(parameter_string(1))argument0=parameter_string(1)else{
+argument0=working_directory+"\"+filename_name(parameter_string(0));
+if file_exists(argument0+argument4)argument0=argument0+argument4
+else{if file_exists(filename_change_ext(argument0,argument4))argument0=filename_change_ext(argument0,".gml")
+else{argument0="";argument1=working_directory+"\";argument2=file_find_first(argument1+"*"+argument4,0);
+if file_exists(argument1+argument2) if not file_exists(argument1+file_find_next()){
+argument0=argument1+argument2}file_find_close()}}}
+if file_exists(argument0){execute_file(argument0);exit}
+game_end();show_message("Error! *"+argument4+" code not found");
